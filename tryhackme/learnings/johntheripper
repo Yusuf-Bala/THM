@@ -1,0 +1,22 @@
+Johnthe ripper
+
+	a tool used for bruteforcing passwords and hashes
+	
+usage 
+	Usage: john [OPTIONS] [PASSWORD-FILES]
+	
+
+
+
+
+
+
+ssh key decryption 
+
+/usr/share/john/ssh2john.py
+sudo john/ssh2john.py id_rsa > forjohn.txt
+	id_rsa contains the ssh key 
+sudo /john forjohn.txt --wordlist=/download/rockyou.txt
+
+
+

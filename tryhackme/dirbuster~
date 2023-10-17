@@ -1,0 +1,15 @@
+dirbuster/dirsearch
+	by owasp 
+	used for bruteforcing directories 
+	mostly used to find hidden directories and hidden files 
+	this works by sending http get requests with the name of the direcory to the 
+
+usage 
+	dirbuster ;  gui opens up
+	paste in url 
+	check the go faster box
+	the wordlist is in the /usr/share/wordlist/dirbuster/directorylist-2.3-medium.txt
+	
+	
+GOBUSTER 
+	gobuster -u http://10.10.151.108/ -w /usr/share/wordlist/dirbuster/directorylist-2.3-medium.txt

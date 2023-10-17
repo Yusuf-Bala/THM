@@ -1,0 +1,15 @@
+ssh
+secure shell
+
+usage:
+ssh remote_username@remote_host
+
+
+
+priv escal
+	
+	scp /usr/share/linpeas jan@10.10.105.107:dev?shm
+	
+	this will copy the file from the local host to the ssh server 
+	scp= secure copy
+	

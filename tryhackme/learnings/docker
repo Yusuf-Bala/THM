@@ -1,0 +1,10 @@
+docker pull jgraham
+	to download/pull the docker
+docker run --rm -p 80:80 --name webgoat santosomar/webgoat / -d -t -p
+	to start the docker machine 
+docker ps 
+	list all the docker containers
+sudo docker stop webgoat
+	this will stop the container webgoat 
+	
+

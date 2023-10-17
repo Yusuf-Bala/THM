@@ -1,0 +1,16 @@
+enum4linux
+	this is  atoolused for information gathering on linux machines
+	
+usage :./enum4linux.pl [options] ip
+
+options[]
+	 -U        get userlist
+    -M        get machine list*
+    -S        get sharelist
+    -P        get password policy information
+    -G        get group and member list
+    -d        be detailed, applies to -U and -S
+    -u user   specify username to use (default "")  
+    -p pass   specify password to use (default "")  
+    
+    e.g ./enum4linux.pl -u 10.10.10.10

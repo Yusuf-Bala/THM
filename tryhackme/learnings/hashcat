@@ -1,0 +1,13 @@
+A PASSWORD CRACKING TOOL 
+
+hash analyzer to identify hash type
+or cli 
+hash-identifier
+
+CRACKING HASHES
+
+hashcat -h | grep md5
+	to get the module number 
+Store hash in a file
+	Echo '48bb6e862e54f2a795ffc4e541caed4d' > hash.txt
+hashcat -m (module number/hashmode) hash.txt -passlist(/root/rockyou)

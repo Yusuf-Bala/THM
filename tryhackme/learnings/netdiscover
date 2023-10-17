@@ -1,0 +1,1 @@
+sudo netdiscover -r 10.10.10.0/24 -p
