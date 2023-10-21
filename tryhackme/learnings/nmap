@@ -1,0 +1,2 @@
+nmap -sCV -Pn ip | tee nmap.txt 
+nmap -sCV -Pn ip -oG nmap.txt

@@ -1,0 +1,1 @@
+		wfuzz -u http://10.10.38.164/island/2100/FUZZ.ticket -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -c --hc 404 

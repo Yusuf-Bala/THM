@@ -1,0 +1,7 @@
+get filename 
+	to download a file from an ftp server 
+	
+	
+	
+ftp 10.101.10.10
+	gftp gui version

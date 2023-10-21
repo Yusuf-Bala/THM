@@ -12,8 +12,7 @@ usage
 	check the go faster box
 	the wordlist is in the /usr/share/wordlist/dirbuster/directorylist-2.3-medium.txt
 	
-	dirsearch -u http://10.10.38.164/2100/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -e .ticket
 	
-
+	
 GOBUSTER 
 	gobuster dir -u http://10.10.151.108/ -w /usr/share/wordlist/dirbuster/directorylist-2.3-medium.txt
