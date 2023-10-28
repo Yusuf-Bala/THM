@@ -6,6 +6,7 @@ dirbuster/dirsearch
 
 dirsearch
 	dirsearch -u http://10.101.101.01 2>/dev/null
+	dirsearch -u url -o output.txt
 usage 
 	dirbuster ;  gui opens up
 	paste in url 

@@ -1,0 +1,5 @@
+http://10.10.3.92:3333/images              [36m (Status: 301)[0m [Size: 316][34m [--> http://10.10.3.92:3333/images/][0m
+http://10.10.3.92:3333/css                 [36m (Status: 301)[0m [Size: 313][34m [--> http://10.10.3.92:3333/css/][0m
+http://10.10.3.92:3333/js                  [36m (Status: 301)[0m [Size: 312][34m [--> http://10.10.3.92:3333/js/][0m
+http://10.10.3.92:3333/fonts               [36m (Status: 301)[0m [Size: 315][34m [--> http://10.10.3.92:3333/fonts/][0m
+http://10.10.3.92:3333/internal            [36m (Status: 301)[0m [Size: 318][34m [--> http://10.10.3.92:3333/internal/][0m

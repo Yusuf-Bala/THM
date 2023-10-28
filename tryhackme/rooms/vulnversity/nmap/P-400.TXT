@@ -1,0 +1,13 @@
+# Nmap 7.94 scan initiated Tue Oct 24 12:58:24 2023 as: nmap -P -oN P-400.TXT 400 10.10.3.92
+Nmap scan report for 10.10.3.92
+Host is up (0.44s latency).
+Not shown: 994 closed tcp ports (reset)
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3128/tcp open  squid-http
+3333/tcp open  dec-notes
+
+# Nmap done at Tue Oct 24 12:58:31 2023 -- 2 IP addresses (1 host up) scanned in 7.17 seconds

