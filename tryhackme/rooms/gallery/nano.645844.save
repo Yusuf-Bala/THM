@@ -1,0 +1,40 @@
+POST /gallery/classes/Users.php?f=save HTTP/1.1
+Host: 10.10.254.119
+User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+X-Requested-With: XMLHttpRequest
+Content-Type: multipart/form-data; boundary=---------------------------71290375741118439852172762286
+Content-Length: 795
+Origin: http://10.10.254.119
+Connection: close
+Referer: http://10.10.254.119/gallery/?page=user
+Cookie: PHPSESSID=63fk1n255sv9ocd8f70tjjqvgs
+
+-----------------------------71290375741118439852172762286
+Content-Disposition: form-data; name=""
+
+1
+-----------------------------71290375741118439852172762286
+Content-Disposition: form-data; name="firstname"
+
+0
+-----------------------------71290375741118439852172762286
+Content-Disposition: form-data; name="lastname"
+
+Admin
+-----------------------------71290375741118439852172762286
+Content-Disposition: form-data; name="username"
+
+admin
+-----------------------------71290375741118439852172762286
+Content-Disposition: form-data; name="password"
+
+
+-----------------------------71290375741118439852172762286
+Content-Disposition: form-data; name="img"; filename=""
+Content-Type: application/octet-stream
+
+
+-----------------------------71290375741118439852172762286--
